@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivational Speech</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff6b6b, #556270);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 800px;
+            display: none;
+        }
+        h1, p {
+            font-size: 1.5em;
+            opacity: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid white;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/1600x900/?sunrise,mountains') no-repeat center center/cover;
+            filter: brightness(0.4);
+            z-index: -1;
+            animation: zoom 10s infinite alternate;
+        }
+        @keyframes zoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        .credits {
+            margin-top: 20px;
+            font-size: 1em;
+            opacity: 0;
+        }
+        .open-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            border: none;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .open-btn i {
+            font-size: 3em;
+        }
+        .open-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <button class="open-btn" onclick="openSpeech()">
+        <i class="fas fa-envelope"></i>
+    </button>
+    <div class="background"></div>
+    <div class="container" id="content">
+        <h1 id="title">Believe in Yourself</h1>
+        <p id="speech">"You are stronger than you think. Every challenge is an opportunity to grow. Keep pushing forward and never give up!"</p>
+        <p class="credits">- Cris Nicoleson Salaban</p>
+    </div>
+    
+    <script>
+        function openSpeech() {
+            document.querySelector('.open-btn').style.display = 'none';
+            let content = document.getElementById("content");
+            content.style.display = 'block';
+            
+            let title = document.getElementById("title");
+            let speech = document.getElementById("speech");
+            let credits = document.querySelector(".credits");
+            
+            title.style.opacity = 1;
+            title.style.animation = "typing 3s steps(30, end) forwards, fadeIn 1s forwards";
+            
+            setTimeout(() => {
+                speech.style.opacity = 1;
+                speech.style.animation = "typing 4s steps(50, end) forwards, fadeIn 1s forwards";
+            }, 1500);
+            
+            setTimeout(() => {
+                credits.style.opacity = 1;
+                credits.style.animation = "fadeIn 2s forwards";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
