@@ -6,7 +6,7 @@
     <title>Motivational Speech</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
 
-    <style>
+        <style>
         body {
             margin: 0;
             padding: 0;
@@ -19,6 +19,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             overflow: hidden;
+            flex-direction: column;
         }
         .container {
             max-width: 800px;
@@ -60,16 +61,16 @@
             opacity: 0;
         }
         .open-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
             font-size: 2em;
             border: none;
             background: transparent;
             color: white;
             cursor: pointer;
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .open-btn i {
             font-size: 3em;
@@ -77,11 +78,17 @@
         .open-btn:hover {
             transform: scale(1.1);
         }
+        .click-text {
+            font-size: 1em;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
     <button class="open-btn" onclick="openSpeech()">
         <i class="fas fa-envelope"></i>
+        <span class="click-text">Click on the envelope</span>
     </button>
     <div class="background"></div>
     <div class="container" id="content">
